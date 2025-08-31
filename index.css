@@ -1,0 +1,33 @@
+ html{
+    background-image
+      linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+      url(httpsi.imgur.com7S0nv6j.png);
+}
+h1 {
+  text-aligncenter;
+  font-familyImpact;
+  color yellow;
+  font-weight 20;
+  }
+  .fondo {
+  border 0.2rem solid;
+  background-color blue;
+  width 26%;
+  display grid;
+  margin auto;
+  margin-bottom 50px;
+}
+ .cuadro1 img {
+  
+  border 3px solid white;
+  width 20%;
+  display block;
+  margin 70px;
+  margin-bottom -10px;
+}
+h2 {
+  font-familyImpact;
+  color white;
+  font-weight 50;
+  margin-left 132px;
+  }
