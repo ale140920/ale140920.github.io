@@ -2,13 +2,72 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-<link rel="stylesheet" href="index.css">
-</div>
-<div class=fondo>
-<h1> PELÍCULAS FALOPA  </h1>
-</div>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página que reacciona</title>
+  <style>
+    body {
+      background: #111;
+      color: #0f0;
+      font-family: "Courier New", monospace;
+      font-size: 1.5rem;
+      padding: 2rem;
+      cursor: pointer; /* para invitar a hacer click */
+    }
 
-<div class=cuadro1>
-<img src="https://m.media-amazon.com/images/M/MV5BMGViZjNjYjctZWFiNi00MWY5LTgzNjMtMjFhNTQ5MWVmNDMxXkEyXkFqcGc@._V1_.jpg">
-  <h2> <a href="https://es.wikipedia.org/wiki/EO_(pel%C3%ADcula)">EO </a> </h2>
-  </html>
+    .typing {
+      border-right: 2px solid #0f0;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: blink 0.7s step-end infinite;
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+  </style>
+</head>
+<body>
+  <div id="texto" class="typing"></div>
+
+  <script>
+    const mensajes = [
+      "¿Qué es esto?",
+      "¿Quién sos?",
+      "¿Dónde estoy?",
+      "Pará",
+      "Te dije que pares",
+      "Остановись",
+      "Твой компьютер теперь принадлежит матери-России",
+      "No funciona",
+      "Sí que sos insistente"
+    ];
+
+    let indiceMensaje = 0;
+    let i = 0;
+    const velocidad = 70;
+    const textoDiv = document.getElementById("texto");
+
+    function escribir(mensaje) {
+      i = 0;
+      textoDiv.textContent = ""; // limpiar antes de escribir
+      function escribirLetra() {
+        if (i < mensaje.length) {
+          textoDiv.textContent += mensaje.charAt(i);
+          i++;
+          setTimeout(escribirLetra, velocidad);
+        }
+      }
+      escribirLetra();
+    }
+
+    // Escribe el primer mensaje
+    escribir(mensajes[indiceMensaje]);
+
+    // Cuando se hace click en cualquier parte de la pantalla
+    document.body.addEventListener("click", () => {
+      indiceMensaje = (indiceMensaje + 1) % mensajes.length; // pasa al siguiente
+      escribir(mensajes[indiceMensaje]);
+    });
+  </script>
+</body>
+</html>
